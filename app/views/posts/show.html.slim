@@ -1,0 +1,17 @@
+h1 Post Show
+= link_to 'Edit Post', edit_post_path(@post)
+= " | "
+= link_to 'Back to Posts', posts_path
+p
+	strong Title: 
+	= @post.title
+
+p
+	strong Text: 
+	= @post.text
+
+h2 Comments
+= render "comments/comments"
+
+h2 Add a comment:
+= render "comments/form"
