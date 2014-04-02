@@ -1,6 +1,8 @@
 - flash.each do |name, msg|
 	- if msg.is_a?(String)
 		div.row
-			- alert_type = (name == :notice) ? "success" : "alert"
-			div.alert-box.round.alert_type
-				msg
+			- if name == :notice
+				div.alert-box.round.success = msg
+			- else
+				div.alert-box.round.alert = msg
+					
