@@ -9,6 +9,8 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  
+  resources :pictures, :only => [:index, :create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
