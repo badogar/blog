@@ -84,3 +84,43 @@ table{
   @extend .message;
   border-color: yellow;
 }
+
+.posts {
+  background-color: #567;
+  @include outer-container;
+
+  .inner {
+  background-color: #fff;
+  @include span-columns(5);
+  @include shift(4);
+  }
+
+  li.block {
+    background-color: #599;
+    @include span-columns(3);
+    @include omega(4n);
+    margin-bottom: 10px;
+  }    
+}
+
+.nestingcolumns {
+  background-color: #f20;
+  @include outer-container;
+ 
+    #leftin {
+      background-color: #2f0;
+      @include span-columns(4);
+    }
+    #rightin {
+      background-color: #480;
+      @include span-columns(8);
+          .leftin2{
+            background-color: #ff0;
+            @include span-columns(4 of 8);
+          }
+         .rightin2{
+           background-color: #710;
+           @include span-columns(4 of 8);
+          }          
+  }    
+}
