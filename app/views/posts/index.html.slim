@@ -1,12 +1,5 @@
 h1 Posts Listing
-= link_to 'New post', new_post_path
-
-div.posts
-            | My Test Blog
-			div.inner			
-			             | My Test Blog is the one the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog thw quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog
-
-
+= link_to 'New post', new_post_path, class: "positive-button" if user_signed_in?
 table
 	tr
 		th Title
@@ -20,8 +13,8 @@ table
 				td = post.title
 				td = post.text
 				td = link_to 'Show', post
-				td = link_to 'Edit', edit_post_path(post)
-				td = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }
+				td = link_to 'Edit', edit_post_path(post) if user_signed_in?
+				td = link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in?
 	- else
 		tr
 			td colspan="2"

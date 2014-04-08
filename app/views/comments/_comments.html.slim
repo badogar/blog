@@ -2,15 +2,13 @@
 	- @post.comments.each do |comment|
 		div.comment
 		  p
-		    strong Commenter:
+		    strong User:
 		    = comment.commenter
-		  
-		  p
-		    strong Comment:
+		    strong  Says:
 		    = comment.body
 		  p
 		  	= link_to 'Destroy Comment', [comment.post, comment],
 	               method: :delete,
-	               data: { confirm: 'Are you sure?' }
+	               data: { confirm: 'Are you sure?' } if user_signed_in?
 - else
 	p No comments posted
