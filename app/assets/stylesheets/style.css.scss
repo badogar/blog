@@ -1,3 +1,10 @@
+@mixin border-style($margin, $padding){
+  border: solid 1px #AAA;
+  margin: $margin;
+  padding: $padding;
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -25,10 +32,7 @@ a {
 }
 
 .project {
-  border: solid 1px #AAA;
-  margin: 20px 0;
-  padding: 7px 12px;
-  
+  @include border-style('12px 0', '7px 12px');  
   &:hover { background-color: #F8FCCF; }
   
   h2 {
@@ -37,9 +41,7 @@ a {
   }
 }
 .comment {
-  border: solid 1px #AAA;
-  margin: 20px 0;
-  padding: 7px 12px;
+  @include border-style('12px 0', '7px 12px');  
   @include border-top-radius(5px);
   @include border-bottom-radius(5px);
   @include border-left-radius(5px);
@@ -51,6 +53,15 @@ a {
     margin: 0;
     a { text-decoration: none; }
   }
+}
+table{
+  @include border-style('12px 0', '7px 12px');
+
+}
+.positive-button{
+  @include button(simple, #3FB344); 
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .message {
